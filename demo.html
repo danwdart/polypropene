@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css"/>
+    <!-- For some reason you need both of these polymer deps.
+    This must be due to some async reason. -->
+    <link rel="import" href="bower_components/polymer/polymer.html"> 
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="bs-modal.html">
+  </head>
+  <body>
+    <a data-toggle="modal" data-target="#modalGo">Go!</a>
+    <bs-modal id="modalGo" title="My Great Title">
+        <bs-body>
+            <bs-checkbox databind="value: Bob">Bob?</bs-checkbox>
+            <bs-text databind="value: text">Text:</bs-text>
+            <bs-textarea databind="value: ta">TA:</bs-textarea>
+        </bs-body>
+        <bs-footer>
+            <bs-save></bs-save><bs-cancel></bs-cancel>
+        </bs-footer>
+    </bs-modal>
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

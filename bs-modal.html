@@ -1,0 +1,96 @@
+<polymer-element name="bs-modal" attributes="id title">
+    <template>
+        <link rel="stylesheet" type="text/css" href="/dist/css/bootstrap.min.css"/>
+        <script src="dist/js/jquery.min.js"></script>
+        <script src="dist/js/bootstrap.min.js"></script>
+        <div id="{{id}}" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title">{{title}}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <content select="bs-body"></content>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <content select="bs-footer"></content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer('bs-modal');
+    </script>
+</polymer-element>
+
+<polymer-element name="bs-save">
+    <template>
+        <button type="button" data-bind="click: save" class="btn btn-primary">save</button>
+    </template>
+    <script>
+        Polymer('bs-save');
+    </script>
+</polymer-element>
+
+<polymer-element name="bs-cancel">
+    <template>
+        <button type="button"  class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </template>
+    <script>
+        Polymer('bs-cancel');
+    </script>
+</polymer-element>
+
+<polymer-element name="bs-text" attributes="rand databind placeholder">
+    <template>
+        <div class="form-group">
+            <label class="control-label" for="{{rand}}"><content></content></label>
+            <div>
+                <input type="text" class="form-control" id="{{rand}}" data-bind="{{databind}}" placeholder="{{placeholder}}"/>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer('bs-text', {
+            rand: Math.floor(Math.random()*10000)
+        });
+    </script>
+</polymer-element>
+
+<polymer-element name="bs-textarea" attributes="rand databind placeholder">
+    <template>
+        <div class="form-group">
+            <label class="control-label" for="{{rand}}"><content></content></label>
+            <div>
+                <textarea id="{{rand}}" class="form-control" data-bind="{{databind}}" placeholder="{{placeholder}}" rows="10"></textarea>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer('bs-textarea', {
+            rand: Math.floor(Math.random()*10000)
+        });
+    </script>
+</polymer-element>
+
+<polymer-element name="bs-checkbox" attributes="rand databind placeholder">
+<!-- I do want data-binds on the form group -->        
+    <template>
+        <div class="form-group">
+            <div class="checkbox">        
+                <label for="{{rand}}"><content></content>
+                    <input type="checkbox" id="{{rand}}" data-bind="{{databind}}"/>
+                </label>  
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer('bs-checkbox', {
+            rand: Math.floor(Math.random()*10000)
+        });
+    </script>
+</polymer-element>
