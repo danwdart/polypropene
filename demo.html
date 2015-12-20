@@ -9,7 +9,7 @@
     <link rel="import" href="bs-modal.html">
   </head>
   <body>
-    <a data-toggle="modal" data-target="#modalGo">Go!</a>
+    <a id="showme" data-toggle="modal" data-target="#modalGo">Go!</a>
     <bs-modal id="modalGo" title="My Great Title">
         <bs-body>
             <bs-checkbox databind="value: Bob">Bob?</bs-checkbox>
@@ -20,6 +20,7 @@
             <bs-save></bs-save><bs-cancel></bs-cancel>
         </bs-footer>
     </bs-modal>
+
     <script src="dist/js/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
   </body>
